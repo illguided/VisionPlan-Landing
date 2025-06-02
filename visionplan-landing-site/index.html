@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionPlan.ai - Intelligent Scheduling for Effortless Productivity</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            font-weight: 500; 
+        }
+        .hero-bg {
+             background-image: linear-gradient(135deg, #BFDBFE 0%, #DBEAFE 100%); /* blue-200 to blue-100 */
+        }
+        .btn-primary {
+            @apply bg-blue-700 hover:bg-blue-800 text-white font-semibold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 inline-flex items-center justify-center;
+        }
+        .btn-secondary-cta {
+            @apply bg-white hover:bg-gray-100 text-blue-700 font-semibold py-3.5 px-10 rounded-lg shadow-md text-lg transition duration-300 ease-in-out transform hover:scale-105;
+        }
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background-color: #fff;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        .close-button {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: black;
+            text-decoration: none;
+        }
+        .feature-visual-placeholder {
+            @apply bg-slate-200 rounded-lg flex items-center justify-center text-slate-500 aspect-video;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 top-0 border-b border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
+            <a href="#">
+                <img src="./visionplan_logo.jpg" alt="VisionPlan.ai Logo" class="h-10"> 
+            </a>
+            <button id="joinWaitlistNav" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 inline-flex items-center justify-center text-xs sm:text-sm px-4 py-2 sm:px-5 sm:py-2.5">Join Waitlist</button>
+        </div>
+    </nav>
+
+    <header class="hero-bg pt-32 pb-20 md:pt-40 md:pb-28 text-center">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold text-gray-900 mb-6 leading-tight">
+                See Your Week Clearly. <br class="hidden sm:inline">Achieve Your Vision.
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-700 mb-10 max-w-2xl mx-auto">
+                VisionPlan.ai uses smart AI to automatically plan your tasks, habits, and meetings, creating the optimal schedule so you can focus on what truly matters.
+            </p>
+            <button id="joinWaitlistHero" class="bg-blue-700 hover:bg-blue-800 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105 inline-flex items-center justify-center text-lg px-8 py-4">
+                Join Our Waitlist
+            </button>
+            <p class="mt-6 text-sm text-gray-600 max-w-md mx-auto">
+                Be the first to experience the future of scheduling. 
+                <span class="block sm:inline mt-1 sm:mt-0">Trusted by early adopters.</span>
+            </p>
+        </div>
+    </header>
+
+    <section id="features" class="py-16 md:py-24 bg-slate-50">
+        <div class="container mx-auto px-4 sm:px-6">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">How VisionPlan.ai Works For You</h2>
+                <p class="text-lg text-gray-700 max-w-2xl mx-auto">
+                    Stop fighting your calendar. VisionPlan.ai intelligently crafts your schedule around your priorities, so you can focus on what's important.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-20">
+                <div class="feature-visual-placeholder">
+                    <span>Visual Placeholder (e.g., UI of task scheduling)</span>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Automated Task Blocking</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Tell VisionPlan.ai your tasks, deadlines, and priorities. Our AI carves out the perfect time, defending your deadlines so you can stop worrying about when things will get done.
+                    </p>
+                    <a href="#" class="text-blue-700 hover:text-blue-800 font-semibold">Learn more &rarr;</a>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:mb-20">
+                <div class="text-center md:text-left md:order-2">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Protect Your Focus Time</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Reclaim deep work blocks critical for your success. VisionPlan.ai helps you create and automatically defends uninterruptible time for your most important projects, minimizing distractions.
+                    </p>
+                    <a href="#" class="text-blue-700 hover:text-blue-800 font-semibold">Learn more &rarr;</a>
+                </div>
+                <div class="feature-visual-placeholder md:order-1">
+                    <span>Visual Placeholder (e.g., UI of focus block)</span>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-center"> 
+                <div class="feature-visual-placeholder">
+                    <span>Visual Placeholder (e.g., UI of habit scheduling)</span>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="text-2xl font-semibold text-gray-900 mb-3">Effortless Habit Building</h3>
+                    <p class="text-gray-700 leading-relaxed mb-4">
+                        Build unbreakable routines for personal and professional growth. VisionPlan.ai intelligently and flexibly schedules your recurring habits around your existing commitments.
+                    </p>
+                    <a href="#" class="text-blue-700 hover:text-blue-800 font-semibold">Learn more &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="bg-blue-600 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">Ready to Reclaim Your Time?</h2>
+            <p class="text-lg sm:text-xl mb-10 max-w-xl mx-auto text-white">
+                Join the VisionPlan.ai waitlist and be among the first to experience truly intelligent scheduling.
+            </p>
+            <button id="joinWaitlistBottom" class="btn-secondary-cta">
+                Sign Me Up!
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-400 py-12">
+        <div class="container mx-auto px-4 sm:px-6 text-center">
+            <p class="text-2xl font-bold text-white mb-2">VisionPlan.ai</p>
+            <p class="mb-4 text-sm">&copy; <span id="currentYear"></span> VisionPlan.ai. All rights reserved.</p>
+            <div class="space-x-4 text-sm">
+                <a href="#" class="hover:text-gray-200">Privacy Policy</a>
+                <span>&bull;</span>
+                <a href="#" class="hover:text-gray-200">Terms of Service</a>
+                 <span>&bull;</span>
+                <a href="mailto:hello@visionplan.ai" class="hover:text-gray-200">Contact Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="waitlistModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModal" class="close-button">&times;</span>
+            <h3 class="text-2xl font-bold text-gray-900 mb-4">Join the VisionPlan.ai Waitlist!</h3>
+            <p class="text-gray-700 mb-6">Enter your email below to get early access and updates.</p>
+            <form id="waitlistForm" class="space-y-4">
+                <div>
+                    <label for="email" class="sr-only">Email address</label>
+                    <input type="email" name="email" id="email" autocomplete="email" required
+                           class="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                           placeholder="you@example.com">
+                </div>
+                <button type="submit" class="w-full btn-primary py-3">
+                    Join Waitlist
+                </button>
+            </form>
+            <p id="formMessage" class="mt-4 text-sm"></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear(); 
+
+        const modal = document.getElementById('waitlistModal');
+        const closeModalButton = document.getElementById('closeModal');
+        const waitlistForm = document.getElementById('waitlistForm');
+        const formMessage = document.getElementById('formMessage');
+
+        const openModalButtons = [
+            document.getElementById('joinWaitlistNav'),
+            document.getElementById('joinWaitlistHero'),
+            document.getElementById('joinWaitlistBottom')
+        ];
+
+        openModalButtons.forEach(button => {
+            if (button) {
+                button.addEventListener('click', () => {
+                    modal.style.display = 'flex';
+                });
+            }
+        });
+
+        if (closeModalButton) {
+            closeModalButton.addEventListener('click', () => {
+                modal.style.display = 'none';
+                formMessage.textContent = ''; 
+                waitlistForm.reset(); 
+            });
+        }
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                formMessage.textContent = '';
+                waitlistForm.reset();
+            }
+        });
+
+        if (waitlistForm) {
+            waitlistForm.addEventListener('submit', async (event) => {
+                event.preventDefault();
+                const emailInput = document.getElementById('email');
+                const email = emailInput.value;
+
+                if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+                    formMessage.textContent = 'Please enter a valid email address.';
+                    formMessage.className = 'mt-4 text-sm text-red-600';
+                    return;
+                }
+                
+                formMessage.textContent = 'Submitting...';
+                formMessage.className = 'mt-4 text-sm text-blue-700';
+
+                try {
+                    await new Promise(resolve => setTimeout(resolve, 1000)); 
+                    
+                    formMessage.textContent = `Thank you, ${email}! You've been added to our waitlist. We'll be in touch soon!`;
+                    formMessage.className = 'mt-4 text-sm text-green-600';
+                    waitlistForm.reset();
+                    
+                    setTimeout(() => {
+                        if (modal.style.display === 'flex') { 
+                           modal.style.display = 'none';
+                           formMessage.textContent = '';
+                        }
+                    }, 3000);
+
+                } catch (error) {
+                    console.error("Error submitting to waitlist (simulated):", error);
+                    formMessage.textContent = 'Something went wrong. Please try again.';
+                    formMessage.className = 'mt-4 text-sm text-red-600';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
